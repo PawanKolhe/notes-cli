@@ -21,12 +21,8 @@ const addNote = (title, body) => {
   console.log("Title:", title);
   console.log("Body:", body);
 
-  debugger;
-
   const notes = loadNotes();
   const duplicateNote = notes.find((note) => note.title === title);
-  
-  debugger;
 
   if (!duplicateNote || notes.length === 0) {
     notes.push({
