@@ -1,8 +1,23 @@
 const fs = require("fs");
 const chalk = require("chalk");
 
+const loadNotes = () => {
+  let dataBuffer;
+  try {
+    dataBuffer = fs.readFileSync("notes.json");
+    const dataJSON = dataBuffer.toString();
+    return JSON.parse(dataJSON);
+  } catch (e) {
+    return [];
+  }
+};
+
+const saveNotes = (notes) => {
+  fs.writeFileSync("notes.json", JSON.stringify(notes));
+};
+
 // ADD
-const addNote = (title) => {
+const addNote = (title, body) => {
   console.log("Title:", title);
   console.log("Body:", body);
 
@@ -21,20 +36,6 @@ const addNote = (title) => {
   }
 };
 
-const saveNotes = (notes) => {
-  fs.writeFileSync("notes.json", JSON.stringify(notes));
-};
-
-const loadNotes = () => {
-  let dataBuffer;
-  try {
-    dataBuffer = fs.readFileSync("notes.json");
-    const dataJSON = dataBuffer.toString();
-    return JSON.parse(dataJSON);
-  } catch (e) {
-    return [];
-  }
-};
 
 // REMOVE
 const removeNote = (title) => {
