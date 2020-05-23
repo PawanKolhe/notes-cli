@@ -21,10 +21,14 @@ const addNote = (title, body) => {
   console.log("Title:", title);
   console.log("Body:", body);
 
+  debugger;
+
   const notes = loadNotes();
   const duplicateNote = notes.find((note) => note.title === title);
+  
+  debugger;
 
-  if (duplicateNote !== undefined) {
+  if (!duplicateNote || notes.length === 0) {
     notes.push({
       title,
       body,
@@ -35,7 +39,6 @@ const addNote = (title, body) => {
     console.log(chalk.red("Note title already exists!"));
   }
 };
-
 
 // REMOVE
 const removeNote = (title) => {
@@ -73,7 +76,7 @@ const viewNote = (title) => {
     console.log(chalk.bold.magentaBright(note.title));
     console.log(chalk.cyanBright(note.body));
   } else {
-    console.log(chalk.red('Note not found.'));
+    console.log(chalk.red("Note not found."));
   }
 };
 
@@ -81,5 +84,5 @@ module.exports = {
   addNote,
   removeNote,
   listNotes,
-  viewNote
+  viewNote,
 };
