@@ -61,8 +61,8 @@ const listNotes = () => {
   });
 };
 
-// READ
-const readNote = (title) => {
+// VIEW
+const viewNote = (title) => {
   console.log("Title:", title);
 
   const notes = loadNotes();
@@ -80,5 +80,5 @@ module.exports = {
   addNote,
   removeNote,
   listNotes,
-  readNote
+  viewNote
 };
