@@ -8,7 +8,9 @@ Manage notes in a single file -> notes.json
 * Read note
 
 ## Get Started
-`npm install`
+```
+npm install
+```
 
 ## Commands
 #### Add Note
@@ -20,8 +22,8 @@ Manage notes in a single file -> notes.json
 #### List Notes
 `node app list`
   
-#### Read Note
-`node app read --title <title>`
+#### View Note
+`node app view --title <title>`
 
 #### Help
 `node app --help`
